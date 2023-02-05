@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="15dp">
+                <EditText
+                    android:id="@+id/edt_url"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:autofillHints="postalAddress"
+                    android:background="@drawable/shape_edit_line"
+                    android:hint="@string/hint_website"
+                    android:inputType="textUri"
+                    android:textSize="12sp"
+                    tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize" />
+                <TextView
+                    android:id="@+id/btn_go"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/shape_button"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/button_go"
+                    android:textColor="#FFFFFF"
+                    tools:ignore="TextContrastCheck" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_float"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_rect"
+        android:layout_marginEnd="10dp">
+        <ImageView
+            android:id="@+id/btn_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/description_home"
+            android:padding="10dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/ic_home" />
+        <ImageView
+            android:id="@+id/btn_clean"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/description_clean"
+            android:padding="8dp"
+            android:src="@drawable/ic_clean" />
+        <ImageView
+            android:id="@+id/btn_refresh"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/description_refresh"
+            android:padding="10dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/ic_refresh" />
+    </LinearLayout>
+</RelativeLayout>

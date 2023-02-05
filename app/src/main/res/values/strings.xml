@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">洛克时光</string>
+    <string name="image_description_appIcon">应用图标</string>
+    <string name="hint_website">请在此输入网址</string>
+    <string name="button_go">前 往</string>
+    <string name="description_refresh">刷新页面</string>
+    <string name="description_clean">清理缓存</string>
+    <string name="description_home">回到主页</string>
+</resources>
