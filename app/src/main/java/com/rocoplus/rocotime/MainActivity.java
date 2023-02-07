@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,7 +33,7 @@ public class MainActivity extends RocoTimeActivity {
     private EditText edt_url;
     private TextView btn_ok;
     private LinearLayout layout_float;
-    private static final String WEBSITE_ROCO = "https://17luoke.cn/h5/";
+    private static final String WEBSITE_ROCO = "https://17luoke.cn/h5/#/";
     //方法重写
     @Override
     @SuppressLint("SetJavaScriptEnabled")
@@ -73,7 +74,7 @@ public class MainActivity extends RocoTimeActivity {
                 Log.e("should", url);
                 if (url.startsWith("http://") || url.startsWith("https://"))
                     if (url.endsWith("RKT58FG542"))
-                        MainActivity.this.download(url, Environment.getExternalStorageDirectory().getPath() + "/Download/" + StringUtils.toHex(StringUtils.toMd5(url.getBytes())) + ".png");
+                        MainActivity.this.download(url, Environment.getExternalStorageDirectory().getPath() + "/Download/" + new String(Base64.encode(StringUtils.toMd5(url.getBytes()), Base64.DEFAULT)).substring(0,8) + ".png");
                     else view.loadUrl(url);
                 return true;
             }
@@ -106,11 +107,6 @@ public class MainActivity extends RocoTimeActivity {
             Toast.makeText(this, "成功清理" + CacheUtils.getClearedByte(this) + "缓存。", Toast.LENGTH_LONG).show();
             this.webView.clearFormData();
             this.webView.clearHistory();
-//            if (this.webView.getOriginalUrl() == null)
-//                this.webView.loadUrl(WEBSITE_SPARE);
-//            else if (this.webView.getOriginalUrl().startsWith(WEBSITE_ROCO) || this.webView.getOriginalUrl().startsWith(WEBSITE_SPARE))
-//                this.webView.loadUrl(WEBSITE_SHADOW);
-//            else this.webView.loadUrl(this.canAccessWebsite ? WEBSITE_ROCO : WEBSITE_SPARE);
         });
         this.findViewById(R.id.btn_home).setOnClickListener(v-> this.webView.loadUrl("https://17luoke.cn/h5/#/"));
         this.findViewById(R.id.btn_refresh).setOnClickListener(v -> this.webView.reload());
